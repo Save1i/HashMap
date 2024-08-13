@@ -131,3 +131,10 @@ class LinkedList {
     return nodes.join(" ");
   }
 }
+
+let newList = new LinkedList();
+
+console.log(newList.append("savva"));
+
+console.log(newList.append("savva"));
+console.log(newList.at(0));
