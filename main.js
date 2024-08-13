@@ -296,6 +296,22 @@ class HashMap {
     return allValues;
   }
 
+  entries() {
+    let allKeyValue = [];
+    let baskets = this._baskets;
+
+    for (let i = 0; i < this.capacity; i++) {
+      let currentNode = baskets[i].head;
+      while (currentNode !== null) {
+        let keyValue = [];
+        keyValue.push(currentNode.data.key, currentNode.data.value);
+        allKeyValue.push(keyValue);
+        currentNode = currentNode.next;
+      }
+    }
+    return allKeyValue;
+  }
+
   _resize() {
     console.log("Resizing...");
     let oldBaskets = this._baskets;
@@ -338,4 +354,4 @@ test.set("no", "WfW");
 // console.log(test.length());
 
 // console.log(test.clear());
-console.log(test.values());
+console.log(test.entries());
